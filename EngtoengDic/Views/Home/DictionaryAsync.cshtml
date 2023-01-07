@@ -1,0 +1,40 @@
+﻿
+@using Newtonsoft.Json;
+@using EngtoengDic.data
+@model Word
+
+
+
+<form asp-controller="Home" asp-action="DictionaryAsync" action="submit" method="post">
+    <div class="wrapper">
+        <header>English Dictionary</header>
+        <div class="search">
+            <input type="text" asp-for="Name" placeholder="Search a word" required spellcheck="false">
+            <i class="fas fa-search"></i>
+            <label class="material-icons">close</label>
+        </div>
+        <p class="info-text">Type any existing word and press enter to get meaning, example, synonyms, etc.</p>
+        <ul>
+            <li class="meaning">
+                <div class="details">
+                    <p>Meaning</p>
+                    <label asp-validation-for="Meaning">@Model.Meaning</label>
+                </div>
+            </li>
+            <li class="example">
+                <div class="details">
+                    <p>Example</p>
+                    <label asp-validation-for="Example">@Model.Example</label>
+                </div>
+            </li>
+            <li class="synonyms">
+                <div class="details">
+                    <p>Synonyms</p>
+                    <div class="list">
+                        <label asp-validation-for="Synonym">@Model.Synonym</label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</form>
